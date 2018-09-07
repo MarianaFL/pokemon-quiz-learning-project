@@ -11,7 +11,16 @@ body {
 img {
 	margin-top: 5em;
 	margin-bottom: 2em;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: pixelated;
+}
+
+#mainScreenPokemon {
 	width: 200px;
+}
+
+#mainScreenTrainer {
+	width: 140px;
 }
 
 #startClickableText {
