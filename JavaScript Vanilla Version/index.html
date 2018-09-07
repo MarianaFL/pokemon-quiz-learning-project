@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pokémon Quiz</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+	</head>
+	<body>
+		<h1>Pokémon Base Stats Quiz</h1>
+		<h3>JavaScript Vanilla Version</h3>
+
+		<img id="mainScreenPokemon" src="">
+		<img src="RGBYTrainer.png">
+
+		<p id="startClickableText" onclick=showWIPMessage()>Press Here to Start</p>
+
+	</body>
+	<script type="text/javascript">
+
+		function getRandomInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		let randomNumber = getRandomInt(1, 151);
+		if (randomNumber < 10) {
+			randomNumber = `00${randomNumber}`
+		}
+		else if (randomNumber < 100) {
+			randomNumber = `0${randomNumber}`
+		}
+
+		const pkmnSpriteURL = `https://www.serebii.net/pokearth/sprites/rb/${randomNumber}.png`;
+		document.querySelector('#mainScreenPokemon').src = pkmnSpriteURL;
+
+		function showWIPMessage() {
+			const workInProgressMessage = document.createElement('p');
+			workInProgressMessage.className = 'error';
+			workInProgressMessage.id = 'workInProgressMessage';
+			workInProgressMessage.innerHTML = 'Work in progress';
+
+			const workInProgressMessageContainer = document.createElement('div');
+			workInProgressMessageContainer.id = 'workInProgressMessageContainer';
+			workInProgressMessageContainer.appendChild(workInProgressMessage);
+
+			document.querySelector('#startClickableText').parentElement.appendChild(workInProgressMessageContainer);
+		}
+
+	</script>
+</html>
