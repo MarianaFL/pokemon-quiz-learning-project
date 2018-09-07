@@ -43,7 +43,10 @@
 			workInProgressMessageContainer.id = 'workInProgressMessageContainer';
 			workInProgressMessageContainer.appendChild(workInProgressMessage);
 
-			document.querySelector('#startClickableText').parentElement.appendChild(workInProgressMessageContainer);
+			const clickableText = document.querySelector('#startClickableText');
+			clickableText.parentElement.appendChild(workInProgressMessageContainer);
+			clickableText.removeAttribute("onclick");
+
 		}
 
 	</script>
