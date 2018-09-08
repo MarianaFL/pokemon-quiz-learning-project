@@ -1,0 +1,22 @@
+#pokemonContainersContainer {
+	display: flex;
+	height: 30em;
+}
+
+#leftPokemonContainer {
+	background-color: #d81a1a;
+}
+
+#rightPokemonContainer {
+	background-color: #271a9e;
+}
+
+.pokemonContainer {
+	height: 100%;
+	width: 50%;
+	display: flex;
+}
+
+.selectablePokemon {
+	margin: auto;
+}

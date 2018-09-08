@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="main.css">
 		<link rel="stylesheet" href="titleScreen.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+		<script src="main.js" charset="utf-8"></script>
 	</head>
 	<body>
 		<h1 id="mainTitle">Pokémon Base Stats Quiz</h1>
@@ -14,24 +15,12 @@
 		<img id="mainScreenPokemon" src="">
 		<img id="mainScreenTrainer" src="RGBYTrainer.bmp">
 
-		<p id="startClickableText" onclick="showWIPMessage()">Press Here to Start</p>
+		<p> <a href="baseStatsQuiz.html" id="startClickableText">Press Here to Start</a></p>
 
 	</body>
 	<script type="text/javascript">
 
-		function getRandomInt(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-		let randomNumber = getRandomInt(1, 151);
-		if (randomNumber < 10) {
-			randomNumber = `00${randomNumber}`
-		}
-		else if (randomNumber < 100) {
-			randomNumber = `0${randomNumber}`
-		}
-
-		const pkmnSpriteURL = `https://www.serebii.net/pokearth/sprites/rb/${randomNumber}.png`;
+		const pkmnSpriteURL = `https://www.serebii.net/pokearth/sprites/rb/${getRandomPokemonNumber(1, 151)}.png`;
 		document.querySelector('#mainScreenPokemon').src = pkmnSpriteURL;
 
 	</script>
