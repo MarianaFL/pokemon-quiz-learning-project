@@ -1,0 +1,22 @@
+h1 {
+	margin-top: 3.5em;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+}
+
+img {
+	margin-top: 5em;
+	margin-bottom: 2em;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: pixelated;
+}
+
+#mainScreenPokemon {
+	width: 200px;
+}
+
+#mainScreenTrainer {
+	width: 150px;
+}

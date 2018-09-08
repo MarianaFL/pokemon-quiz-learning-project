@@ -4,16 +4,17 @@
 		<title>Pokémon Quiz</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="titleScreen.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
 	</head>
 	<body>
-		<h1>Pokémon Base Stats Quiz</h1>
-		<h3>JavaScript Vanilla Version</h3>
+		<h1 id="mainTitle">Pokémon Base Stats Quiz</h1>
+		<h3 id="mainSubtitle">JavaScript Vanilla Version</h3>
 
 		<img id="mainScreenPokemon" src="">
 		<img id="mainScreenTrainer" src="RGBYTrainer.bmp">
 
-		<p id="startClickableText" onclick=showWIPMessage()>Press Here to Start</p>
+		<p id="startClickableText" onclick="showWIPMessage()">Press Here to Start</p>
 
 	</body>
 	<script type="text/javascript">
@@ -32,22 +33,6 @@
 
 		const pkmnSpriteURL = `https://www.serebii.net/pokearth/sprites/rb/${randomNumber}.png`;
 		document.querySelector('#mainScreenPokemon').src = pkmnSpriteURL;
-
-		function showWIPMessage() {
-			const workInProgressMessage = document.createElement('p');
-			workInProgressMessage.className = 'error';
-			workInProgressMessage.id = 'workInProgressMessage';
-			workInProgressMessage.innerHTML = 'Work in progress';
-
-			const workInProgressMessageContainer = document.createElement('div');
-			workInProgressMessageContainer.id = 'workInProgressMessageContainer';
-			workInProgressMessageContainer.appendChild(workInProgressMessage);
-
-			const clickableText = document.querySelector('#startClickableText');
-			clickableText.parentElement.appendChild(workInProgressMessageContainer);
-			clickableText.removeAttribute("onclick");
-
-		}
 
 	</script>
 </html>
