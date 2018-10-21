@@ -24,17 +24,19 @@ document.querySelector('#quizQuestion').innerText = `Which of these pokémon has
 function preparePkmnInfo (allPkmnDataArray) {
 	const leftPkmnNumber = getRandomPokemonNumber(1, 806);
 	const rightPkmnNumber = getRandomPokemonNumber(1, 806);
+	const leftPkmn = allPkmnDataArray[parseInt(leftPkmnNumber)];
+	const rightPkmn = allPkmnDataArray[parseInt(rightPkmnNumber)];
 
 	const leftPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${leftPkmnNumber}.png`;
 	document.querySelector('#leftPokemon').src = leftPkmnURL;
 	const leftPkmnName = document.createElement('h1');
-	leftPkmnName.innerText = allPkmnDataArray[leftPkmnNumber][29];
+	leftPkmnName.innerText = leftPkmn[29];
 	document.querySelector('#leftPokemonContainer').appendChild(leftPkmnName);
 
 	const rightPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${rightPkmnNumber}.png`;
 	document.querySelector('#rightPokemon').src = rightPkmnURL;
 	const rightPkmnName = document.createElement('h1');
-	rightPkmnName.innerText = allPkmnDataArray[rightPkmnNumber][29];
+	rightPkmnName.innerText = rightPkmn[29];
 	document.querySelector('#rightPokemonContainer').appendChild(rightPkmnName);
 
 	document.querySelector('#reviewStatsButton').onclick = function(){
@@ -46,7 +48,7 @@ function preparePkmnInfo (allPkmnDataArray) {
 			'special defense' : 33,
 			'speed' : 34,
 		}
-		document.querySelector('#leftPokemonStat').innerText = allPkmnDataArray[leftPkmnNumber][statsIndexes[randomStat]];
-		document.querySelector('#rightPokemonStat').innerText = allPkmnDataArray[rightPkmnNumber][statsIndexes[randomStat]];
+		document.querySelector('#leftPokemonStat').innerText = leftPkmn[statsIndexes[randomStat]];
+		document.querySelector('#rightPokemonStat').innerText = rightPkmn[statsIndexes[randomStat]];
 	}
 }

@@ -2,17 +2,18 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//return string with the random number; String is necessary for use in URL
 function getRandomPokemonNumber(min, max) {
 	let randomNumber = getRandomInt(min, max);
 	
 	if (randomNumber < 10) {
-		randomNumber = `00${randomNumber}`
+		return `00${randomNumber}`
 	}
 	else if (randomNumber < 100) {
-		randomNumber = `0${randomNumber}`
+		return `0${randomNumber}`
 	}
 
-	return randomNumber;
+	return randomNumber.toString();
 }
 
 function showWIPMessage(selector, parentSelector) {
