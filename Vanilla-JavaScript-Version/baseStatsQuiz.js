@@ -1,13 +1,39 @@
+function loadData() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			const pkmnDataString = this.responseText.split("\n")
+			const allPkmnDataArray = []
+			for (let i = 1; i < pkmnDataString.length; i++) {
+		      	let pkmnDataArray = pkmnDataString[i].slice(pkmnDataString[i].indexOf(']')+3).split(',')
+		      	//TODO add object with the pokémon abilities in [0]	
+		    	allPkmnDataArray[i] = pkmnDataArray
+	      	}
+			return preparePkmnInfo(allPkmnDataArray);
+	    }
+  	};
+	xhttp.open("GET", "pokemon.csv", true);
+	xhttp.send();
+}
+
+const allPkmnDataArray = loadData();
 const STATS = ['HP', 'attack', 'defense', 'speed', 'special attack', 'special defense']
 const randomStat = STATS[getRandomInt(0, 5)];
 document.querySelector('#quizQuestion').innerText = `Which of these pokémon has more base ${randomStat}?`;
 
+function preparePkmnInfo (allPkmnDataArray) {
+	const leftPkmnNumber = getRandomPokemonNumber(1, 806);
+	const rightPkmnNumber = getRandomPokemonNumber(1, 806);
 
-const leftPkmnNumber = getRandomPokemonNumber(1, 806);
-const rightPkmnNumber = getRandomPokemonNumber(1, 806);
+	const leftPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${leftPkmnNumber}.png`;
+	document.querySelector('#leftPokemon').src = leftPkmnURL;
+	const leftPkmnName = document.createElement('h1');
+	leftPkmnName.innerText = allPkmnDataArray[leftPkmnNumber][29];
+	document.querySelector('#leftPokemonContainer').appendChild(leftPkmnName);
 
-const leftPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${leftPkmnNumber}.png`;
-document.querySelector('#leftPokemon').src = leftPkmnURL;
-
-const rightPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${rightPkmnNumber}.png`;
-document.querySelector('#rightPokemon').src = rightPkmnURL;
+	const rightPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${rightPkmnNumber}.png`;
+	document.querySelector('#rightPokemon').src = rightPkmnURL;
+	const rightPkmnName = document.createElement('h1');
+	rightPkmnName.innerText = allPkmnDataArray[rightPkmnNumber][29];
+	document.querySelector('#rightPokemonContainer').appendChild(rightPkmnName);
+}
