@@ -9,7 +9,7 @@ function loadData() {
 		      	//TODO add object with the pokémon abilities in [0]	
 		    	allPkmnDataArray[i] = pkmnDataArray
 	      	}
-			return preparePkmnInfo(allPkmnDataArray);
+			preparePkmnInfo(allPkmnDataArray);
 	    }
   	};
 	xhttp.open("GET", "pokemon.csv", true);
@@ -36,4 +36,17 @@ function preparePkmnInfo (allPkmnDataArray) {
 	const rightPkmnName = document.createElement('h1');
 	rightPkmnName.innerText = allPkmnDataArray[rightPkmnNumber][29];
 	document.querySelector('#rightPokemonContainer').appendChild(rightPkmnName);
+
+	document.querySelector('#reviewStatsButton').onclick = function(){
+		const statsIndexes = {
+			'attack' : 18,
+			'defense' : 24,
+			'HP' : 27,
+			'special attack' : 32,
+			'special defense' : 33,
+			'speed' : 34,
+		}
+		document.querySelector('#leftPokemonStat').innerText = allPkmnDataArray[leftPkmnNumber][statsIndexes[randomStat]];
+		document.querySelector('#rightPokemonStat').innerText = allPkmnDataArray[rightPkmnNumber][statsIndexes[randomStat]];
+	}
 }
