@@ -39,7 +39,7 @@ function preparePkmnInfo (allPkmnDataArray) {
 	rightPkmnName.innerText = rightPkmn[29];
 	document.querySelector('#rightPokemonContainer').appendChild(rightPkmnName);
 
-	document.querySelector('#reviewStatsButton').onclick = function(){
+	document.querySelector('#revealStatsButton').onclick = function(){
 		const statsIndexes = {
 			'attack' : 18,
 			'defense' : 24,
