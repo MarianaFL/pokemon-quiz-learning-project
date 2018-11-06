@@ -5,7 +5,7 @@ function loadData() {
 			const pkmnDataString = this.responseText.split("\n")
 			const allPkmnDataArray = []
 			for (let i = 1; i < pkmnDataString.length; i++) {
-		      	let pkmnDataArray = pkmnDataString[i].slice(pkmnDataString[i].indexOf(']')+3).split(',')
+		      	let pkmnDataArray = pkmnDataString[i].slice(pkmnDataString[i].indexOf(']')+2).split(',')
 		      	//TODO add object with the pokémon abilities in [0]	
 		    	allPkmnDataArray[i] = pkmnDataArray
 	      	}
@@ -22,31 +22,31 @@ const randomStat = STATS[getRandomInt(0, 5)];
 document.querySelector('#quizQuestion').innerText = `Which of these pokémon has more base ${randomStat}?`;
 
 function preparePkmnInfo (allPkmnDataArray) {
-	const leftPkmnNumber = getRandomPokemonNumber(1, 806);
-	const rightPkmnNumber = getRandomPokemonNumber(1, 806);
+	const leftPkmnNumber = getRandomPokemonNumber(1, 807);
+	const rightPkmnNumber = getRandomPokemonNumber(1, 807);
 	const leftPkmn = allPkmnDataArray[parseInt(leftPkmnNumber)];
 	const rightPkmn = allPkmnDataArray[parseInt(rightPkmnNumber)];
 
 	const leftPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${leftPkmnNumber}.png`;
 	document.querySelector('#leftPokemon').src = leftPkmnURL;
 	const leftPkmnName = document.createElement('h1');
-	leftPkmnName.innerText = leftPkmn[29];
+	leftPkmnName.innerText = leftPkmn[30];
 	document.querySelector('#leftPokemonContainer').appendChild(leftPkmnName);
 
 	const rightPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${rightPkmnNumber}.png`;
 	document.querySelector('#rightPokemon').src = rightPkmnURL;
 	const rightPkmnName = document.createElement('h1');
-	rightPkmnName.innerText = rightPkmn[29];
+	rightPkmnName.innerText = rightPkmn[30];
 	document.querySelector('#rightPokemonContainer').appendChild(rightPkmnName);
 
 	document.querySelector('#revealStatsButton').onclick = function(){
 		const statsIndexes = {
-			'attack' : 18,
-			'defense' : 24,
-			'HP' : 27,
-			'special attack' : 32,
-			'special defense' : 33,
-			'speed' : 34,
+			'attack' : 19,
+			'defense' : 25,
+			'HP' : 28,
+			'special attack' : 33,
+			'special defense' : 34,
+			'speed' : 35,
 		}
 		document.querySelector('#leftPokemonStat').innerText = leftPkmn[statsIndexes[randomStat]];
 		document.querySelector('#rightPokemonStat').innerText = rightPkmn[statsIndexes[randomStat]];
