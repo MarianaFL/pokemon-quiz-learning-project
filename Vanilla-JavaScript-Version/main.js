@@ -33,3 +33,8 @@ function showWIPMessage(selector, parentSelector) {
 	else 
 		clickableElement.parentElement.appendChild(workInProgressMessageContainer);
 }
+
+
+function hideLoading() {
+	document.querySelector('#loadingDiv').style.display = "none";
+}

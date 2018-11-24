@@ -16,10 +16,12 @@ function loadData() {
 	xhttp.send();
 }
 
+
 const allPkmnDataArray = loadData();
 const STATS = ['HP', 'attack', 'defense', 'speed', 'special attack', 'special defense']
 const randomStat = STATS[getRandomInt(0, 5)];
 document.querySelector('#quizQuestion').innerText = `Which of these pokémon has more base ${randomStat}?`;
+
 
 function preparePkmnInfo (allPkmnDataArray) {
 	const leftPkmnNumber = getRandomPokemonNumber(1, 807);
@@ -51,4 +53,16 @@ function preparePkmnInfo (allPkmnDataArray) {
 		document.querySelector('#leftPokemonStat').innerText = leftPkmn[statsIndexes[randomStat]];
 		document.querySelector('#rightPokemonStat').innerText = rightPkmn[statsIndexes[randomStat]];
 	}
+
+	let loadedPokemon = 0;
+	const selectablePokemonOnLoad = () => {
+		loadedPokemon++;
+		console.log(loadedPokemon)
+		if (loadedPokemon === 2) {
+			hideLoading();
+		}
+	}
+
+	document.querySelector('#leftPokemon').onload = selectablePokemonOnLoad;
+	document.querySelector('#rightPokemon').onload = selectablePokemonOnLoad;
 }
