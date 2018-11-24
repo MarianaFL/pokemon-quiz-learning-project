@@ -9,6 +9,7 @@
 		<script src="main.js" charset="utf-8"></script>
 	</head>
 	<body>
+		<div id="loadingDiv"></div>
 		<h1 id="mainTitle">Pokémon Base Stats Quiz</h1>
 		<h3 id="mainSubtitle">Vanilla JavaScript Version</h3>
 
@@ -24,6 +25,7 @@
 
 		const pkmnSpriteURL = `https://www.serebii.net/pokearth/sprites/rb/${getRandomPokemonNumber(1, 151)}.png`;
 		document.querySelector('#mainScreenPokemon').src = pkmnSpriteURL;
+		document.querySelector('#mainScreenPokemon').onload = hideLoading;
 
 	</script>
 </html>
