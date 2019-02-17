@@ -36,5 +36,7 @@ function showWIPMessage(selector, parentSelector) {
 
 
 function hideLoading() {
-	document.querySelector('#loadingDiv').style.display = "none";
+	const loadingDiv = document.querySelector('#loadingDiv');
+	loadingDiv.style.opacity = 0;
+	setTimeout(() => { loadingDiv.style.display = 'none' }, 1500);
 }

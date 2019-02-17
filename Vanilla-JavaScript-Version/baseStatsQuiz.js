@@ -57,7 +57,6 @@ function preparePkmnInfo (allPkmnDataArray) {
 	let loadedPokemon = 0;
 	const selectablePokemonOnLoad = () => {
 		loadedPokemon++;
-		console.log(loadedPokemon)
 		if (loadedPokemon === 2) {
 			hideLoading();
 		}
