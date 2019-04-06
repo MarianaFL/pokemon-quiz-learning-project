@@ -9,20 +9,26 @@
 		<script src="main.js" charset="utf-8"></script>
 	</head>
 	<body>
-		<div id="loadingDiv">
-			<img id="runningPikachu" src="PikachuRunning.gif">
-		</div>
-		<h3 id="quizQuestion"></h3>
-		<button id="revealStatsButton" style="margin-bottom: 15px">Reveal Stats</button>
-		<div id="pokemonContainersContainer" onclick="showWIPMessage('#pokemonContainersContainer','body')">
-			<div id="leftPokemonContainer" class="pokemonContainer">
-				<h3 id="leftPokemonStat"></h3>
-				<img id="leftPokemon" class="selectablePokemon" src="">
+		<div id="quizContent">
+			<div id="loadingDiv">
+				<img id="runningPikachu" src="PikachuRunning.gif">
 			</div>
-			<div id="rightPokemonContainer" class="pokemonContainer">
-				<h3 id="rightPokemonStat"></h3>
-				<img id="rightPokemon" class="selectablePokemon" src="">
-			</div>
+			<h3 id="quizQuestion">Select which of these pokémon has more base...</h3>
+			<h1 id="quizQuestionStat"></h1>
+				<div id="pokemonContainersContainer" onclick="showWIPMessage('#pokemonContainersContainer','body')">
+					<div id="leftContainer">
+						<h2 id="leftPokemonName" class="pokemonName"></h2>
+						<div id="leftPokemonContainer" class="pokemonContainer">
+							<img id="leftPokemon" class="selectablePokemon" src="">
+						</div>
+					</div>
+					<div id="rightContainer">
+						<h2 id="rightPokemonName" class="pokemonName">Wynaut</h2>
+						<div id="rightPokemonContainer" class="pokemonContainer">
+							<img id="rightPokemon" class="selectablePokemon" src="">
+						</div>
+					</div>
+				</div>
 		</div>
 	</body>
 	<script src="baseStatsQuiz.js" charset="utf-8"></script>

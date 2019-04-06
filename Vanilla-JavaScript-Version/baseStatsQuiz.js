@@ -18,9 +18,9 @@ function loadData() {
 
 
 const allPkmnDataArray = loadData();
-const STATS = ['HP', 'attack', 'defense', 'speed', 'special attack', 'special defense']
+const STATS = ['HP', 'Attack', 'Defense', 'Speed', 'Special Attack', 'Special Defense']
 const randomStat = STATS[getRandomInt(0, 5)];
-document.querySelector('#quizQuestion').innerText = `Which of these pokémon has more base ${randomStat}?`;
+document.querySelector('#quizQuestionStat').innerText = `${randomStat}`;
 
 
 function preparePkmnInfo (allPkmnDataArray) {
@@ -31,28 +31,13 @@ function preparePkmnInfo (allPkmnDataArray) {
 
 	const leftPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${leftPkmnNumber}.png`;
 	document.querySelector('#leftPokemon').src = leftPkmnURL;
-	const leftPkmnName = document.createElement('h1');
+	const leftPkmnName = document.querySelector('#leftPokemonName');
 	leftPkmnName.innerText = leftPkmn[30];
-	document.querySelector('#leftPokemonContainer').appendChild(leftPkmnName);
 
 	const rightPkmnURL = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${rightPkmnNumber}.png`;
 	document.querySelector('#rightPokemon').src = rightPkmnURL;
-	const rightPkmnName = document.createElement('h1');
+	const rightPkmnName = document.querySelector('#rightPokemonName');
 	rightPkmnName.innerText = rightPkmn[30];
-	document.querySelector('#rightPokemonContainer').appendChild(rightPkmnName);
-
-	document.querySelector('#revealStatsButton').onclick = function(){
-		const statsIndexes = {
-			'attack' : 19,
-			'defense' : 25,
-			'HP' : 28,
-			'special attack' : 33,
-			'special defense' : 34,
-			'speed' : 35,
-		}
-		document.querySelector('#leftPokemonStat').innerText = leftPkmn[statsIndexes[randomStat]];
-		document.querySelector('#rightPokemonStat').innerText = rightPkmn[statsIndexes[randomStat]];
-	}
 
 	let loadedPokemon = 0;
 	const selectablePokemonOnLoad = () => {

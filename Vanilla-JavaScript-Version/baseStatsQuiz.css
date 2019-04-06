@@ -5,6 +5,12 @@ body {
 #pokemonContainersContainer {
 	display: flex;
 	height: 30em;
+	justify-content: center;
+}
+
+.pokemonName {
+	margin-top: 0;
+	margin-bottom: 10px;
 }
 
 #leftPokemonContainer {
@@ -16,8 +22,7 @@ body {
 }
 
 .pokemonContainer {
-	height: 100%;
-	width: 50%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 	border-radius: 40px;
